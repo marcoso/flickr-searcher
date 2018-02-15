@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+	background-color: #262626 !important;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.page-header h3 {
+	color: white;	
+}
+
+.light-text {
+  color: white;
+}
+
+.alert-error{
+  padding: 8px;     
+  margin-left: 15px;
+  height: 34px;
+  width: 170px;
+}
+
+.search-results {
+  height: 800; 
+}
+
+.list-container {    
+  margin-top: 30px;
+}
+
+.sort {
+  margin-left: 10px;
+  word-wrap: break-word;
+}
+
+.sort button{
+  width: 160px;
+}
+
+.photo-item{    
+  background-color: #0C0C0C;    
+  border: none;      
+  border-radius: 20px;    
+  min-height: 300px;
+}
+
+.photo-item span{        
+  color: #FFC200;           
+}
+
+.photo-item h4{        
+  color: white;        
+}
+
+.photo-item h4 span{        
+  color: #FFC200;        
+}
+
+.photo-item hr{            
+  border-top: none;
+  border-bottom: 1px solid #FFC200;    
+}
+
+.photo-item p {
+  color: white; 
+  word-wrap: break-word;
+  margin-left: 10px;
+}
+
+.photo-item .centered{
+  text-align: center;
+}
+
+.shift-container {
+  margin-bottom: 25px;
+}
+
+.main-container {    
+  background-color: #0C0C0C; 
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #0C0C0C;
+  border-left-width: 5px;
+  border-left-color: #FFC200;
+  border-radius: 3px;
+}
+
+.main-container p {
+font-style: italic;
+}   
+
+.no-border {            
+  border-bottom: none !important;    
+}

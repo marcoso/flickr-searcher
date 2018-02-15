@@ -1,0 +1,16 @@
+.photo-item{           
+    min-height: 250px;
+}
+
+.light-text {
+    margin-left: 15px;
+}
+
+.paging-controls {
+    text-align: center;
+}
+
+.paging-controls button{
+    margin : 20px;
+    min-width: 150px;
+}

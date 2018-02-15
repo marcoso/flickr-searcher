@@ -1,0 +1,43 @@
+<div class="main-container">		  
+  <div class="row">
+		<div class="form-group col-sm-5 col-md-4">		    
+      <input [(ngModel)]="searchTag" id="searchTagButton" name="searchTagButton" type="text" class="form-control" placeholder="Enter search tag..." (keyup.enter)="search()" required #tag="ngModel">	    	        		    
+    </div>	  		  	    
+    <div class="form-group col-sm-5 col-md-4 user-id">		    
+      <input [(ngModel)]="userId" id="searchUserId" name="searchUserId" type="text" class="form-control" (keyup.enter)="search()" placeholder="User id... [optional]">	    	        		    
+    </div>
+  </div> 
+  <div class="row">
+      <div [hidden]="tag.valid" class="alert alert-danger alert-error col-sm-5 col-md-4" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>Search tag required
+        </div>
+  </div>
+  <p class="text-danger"><strong>{{searchMessage}}</strong></p>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)='cancel()'>Cancel</button>                                
+    <button (click)="search()" class="btn btn-primary" name="search" [disabled]="!tag.valid"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>    
+  </div>    		  	
+</div> 
+<div class="row sort-controls col-xs-12">      
+    <button type="button" class="btn btn-primary" *ngIf="photosResult.length > 0" (click)='setSortingField(sortFieldType.sortByViews)'>Sort by views</button>                                
+    <button type="button" class="btn btn-primary" *ngIf="photosResult.length > 0" (click)='setSortingField(sortFieldType.sortByDateTaken)'>Sort by date taken</button>                                
+    <button type="button" class="btn btn-primary" *ngIf="photosResult.length > 0" (click)='setSortingField(sortFieldType.sortByDateUploaded)'>Sort by date uploaded</button>                                
+    <button type="button" class="btn btn-primary" *ngIf="photosResult.length > 0" (click)='setSortingField(sortFieldType.sortByOwnerName)'>Sort by owner name</button>                                
+</div>
+
+<div class="row list-container search-results">	
+  <div *ngFor="let item of photosResult | sort: sortField : sortDirection" class="col-xs-12 col-sm-4 col-md-4">	    
+    <div *ngFor="let photo of item.photos.photo" class="col-xs-12 col-sm-12 col-md-12" (click)='tileClick(item.tags, item.userid)'>
+      <div class="thumbnail photo-item">					  
+        <h4 class="text-center"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></h4>  
+        <hr>                              
+        <p class="centered"><img src="{{photo.url_q}}" alt="Smiley face"></p>
+        <p><span>Search Tags:</span> {{item.tags}}</p>
+        <p><span>Owner Name:</span> {{photo.ownername}}</p>
+        <p><span>Date Uploaded:</span> {{photo.dateupload}}</p>
+        <p><span>Date Taken:</span> {{photo.datetaken}}</p>
+        <p><span>Views:</span> {{photo.views}}</p>        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="main-container">		    
+  <div class="row">
+      <p class="light-text">Tags: {{tags}}</p>
+      <p class="light-text" *ngIf="userId">User id: {{userId}}</p>
+      <p class="text-danger"><strong>{{searchMessage}}</strong></p>      
+  </div>  
+</div> 
+<div class="row list-container search-results">	
+  <div *ngFor="let item of photos" class="col-xs-12 col-sm-12 col-md-12">	    
+    <div *ngFor="let photo of item.photos.photo" class="col-xs-12 col-sm-4 col-md-4">
+      <div class="thumbnail photo-item">					  
+        <h4 class="text-center"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></h4>  
+        <hr>                      
+        <img src="{{photo.url_q}}" alt="Smiley face">     
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row paging-controls">      
+  <button type="button" class="btn btn-primary" *ngIf="photos.length > 0" (click)='setFirstPage()'>First</button>                                
+  <button type="button" class="btn btn-primary" *ngIf="photos.length > 0" (click)='setPreviousPage()'>Previous</button>                                
+  <button type="button" class="btn btn-primary" *ngIf="photos.length > 0" (click)='setNextPage()'>Next</button>                                
+  <button type="button" class="btn btn-primary" *ngIf="photos.length > 0" (click)='setLastPage()'>Last</button>                                
+</div>
